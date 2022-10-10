@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501c32f6442304a81d98494260391c, type: 3}
+  m_Name: Plane0
+  m_EditorClassIdentifier: 
+  character_prefab: {fileID: 5699633149503574411, guid: 768a10701c56e7d40b3213c92d350d9b, type: 3}
+  image: {fileID: 1094238999, guid: 6a256fdb7a36eb74bac1ecc1e23b9414, type: 3}
+  value: 0
+  characterName: Basic
+  isUnlocked: 0
