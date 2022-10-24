@@ -5,11 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     Transform[] spawPositions;
+    [SerializeField] HandlerBehaviour handlerBehaviour;
 
     public static GameManager instance;
     public GameObject Player;
     private PowerUpSpawner powerUpSpawner;
     private Consumer consumer;
+    PowerUp currentPowerUp;
+
 
     public int maxMissileInstance = 5;
     int currentInstanceMissiles = 0;
@@ -36,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        powerUpSpawner.SpawnRandomPowerUp();
+        SpawnRandomPowerUp();
     }
 
     public Vector3 GetRandomSpawnposition()
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             consumer.Spawn();
+            Player.GetComponent<PlayerStats>().AddMoney(100);
         }
     }
 
@@ -77,14 +81,15 @@ public class GameManager : MonoBehaviour
 
     public void SpawnRandomPowerUp()
     {
-        powerUpSpawner.SpawnRandomPowerUp();
+        currentPowerUp = powerUpSpawner.SpawnRandomPowerUp();
+        handlerBehaviour.SetCurrentPowerUp(currentPowerUp);
     }
     void initPlayer()
     {
         int indexPlayer = PlayerPrefs.GetInt("PlayerIndex");
         Instantiate(CharacterSelected.Instance.characters[indexPlayer].character_prefab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
 
-       
+
         Player = GameObject.FindGameObjectWithTag("Player");
 
         GameObject positionManager = Player.transform.Find("PowerUpSpawnerPositions").gameObject;
@@ -92,7 +97,6 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < positionManager.transform.childCount; i++)
         {
             spawPositions[i] = positionManager.transform.GetChild(i);
-            Debug.Log(spawPositions[i].name);
         }
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Plane2
   m_EditorClassIdentifier: 
   character_prefab: {fileID: 5699633149503574411, guid: 6f76c545902e07641b6551ccdda7311f, type: 3}
-  image: {fileID: 721356206, guid: 6a256fdb7a36eb74bac1ecc1e23b9414, type: 3}
+  image: {fileID: 5439370032352145196, guid: 6a256fdb7a36eb74bac1ecc1e23b9414, type: 3}
   value: 50
   characterName: Hybrid
+  isUnlocked: 0

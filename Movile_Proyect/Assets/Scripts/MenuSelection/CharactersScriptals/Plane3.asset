@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Plane3
   m_EditorClassIdentifier: 
   character_prefab: {fileID: 5699633149503574411, guid: e3cdea5dd1fd8c14398a00c2fca50fb2, type: 3}
-  image: {fileID: 2077102889, guid: 6a256fdb7a36eb74bac1ecc1e23b9414, type: 3}
+  image: {fileID: -4101807411320628619, guid: 6a256fdb7a36eb74bac1ecc1e23b9414, type: 3}
   value: 100
   characterName: ME262
+  isUnlocked: 0

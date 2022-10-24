@@ -13,10 +13,10 @@ public class PowerUpSpawner : MonoBehaviour
         powerUpFactory = new PowerUpFactory(Instantiate(powerUpConfiguration));
     }
 
-    public void SpawnRandomPowerUp()
+    public PowerUp SpawnRandomPowerUp()
     {
         spawPosition = GameManager.instance.GetRandomSpawnposition();
 
-        powerUpFactory.Create(PowerUpsID[Random.Range(0, PowerUpsID.Length)].ToString(), spawPosition);
+       return powerUpFactory.Create(PowerUpsID[Random.Range(0, PowerUpsID.Length)].ToString(), spawPosition);
     }
 }

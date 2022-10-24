@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class CharacterMenuSelected : MonoBehaviour
 {
     CharacterSelected characterSelected;
-    
+    SceneController sceneController;
+
+
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI characterNameText;
     [SerializeField] TextMeshProUGUI valueText;
@@ -24,6 +26,8 @@ public class CharacterMenuSelected : MonoBehaviour
     private void Start()
     {
         characterSelected = CharacterSelected.Instance;
+     //   sceneController = GameObject.Find("Scene_Controller").GetComponent<SceneController>();
+
 
         index = PlayerPrefs.GetInt(playerPrefKey);
         money = PlayerPrefs.GetInt(moneyKey);
@@ -82,7 +86,9 @@ public class CharacterMenuSelected : MonoBehaviour
 
         if (characterSelected.characters[index].isUnlocked)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //sceneController.goToGameplay();
+            SceneManager.LoadScene("Game");
+            return;
         }
 
         if (money >= characterSelected.characters[index].value)
@@ -94,7 +100,9 @@ public class CharacterMenuSelected : MonoBehaviour
             PlayerPrefs.SetInt(moneyKey, money);
             PlayerPrefs.SetInt(UnlockedKey + index, 1);
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //sceneController.goToGameplay();
+            SceneManager.LoadScene("Game");
+
         }
     }
 }

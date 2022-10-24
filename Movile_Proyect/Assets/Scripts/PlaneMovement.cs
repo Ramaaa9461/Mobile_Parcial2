@@ -12,6 +12,12 @@ public class PlaneMovement : MonoBehaviour
     }
 
     [SerializeField] float turningForce;
+    public float TurningForce
+    {
+        set { turningForce = value; }
+        get { return turningForce; }
+    }
+
     Rigidbody2D rigidbody;
 
     void Awake()

@@ -24,7 +24,7 @@ public class PowerUpConfiguration : ScriptableObject
 
         if (!idToPowerUp.TryGetValue(id, out powerUp))
         {
-            Debug.Log("No encontro el Power Up");
+            Debug.LogError("No encontro el Power Up");
         }
 
         return powerUp;

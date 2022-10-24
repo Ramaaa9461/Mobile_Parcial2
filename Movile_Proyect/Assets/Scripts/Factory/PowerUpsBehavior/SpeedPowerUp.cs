@@ -13,19 +13,25 @@ public class SpeedPowerUp : PowerUp
             planeMovement = _gameObject.GetComponent<PlaneMovement>();
 
             float normalVelocity = planeMovement.Velocity;
+            float normalTurningForce = planeMovement.TurningForce;
+
             float powerUpVelocity = normalVelocity + (normalVelocity / 2);
+            float powerUpTurningForce = normalTurningForce + (normalTurningForce / 2);
 
             planeMovement.Velocity = powerUpVelocity;
+            planeMovement.TurningForce = powerUpTurningForce;
+
             transform.position = new Vector3(10000, 10000);
-            StartCoroutine(PowerUpDuration(planeMovement, normalVelocity));
+            StartCoroutine(PowerUpDuration(planeMovement, normalVelocity, normalTurningForce));
         }
         GameManager.instance.SpawnRandomPowerUp();
     }
 
-    IEnumerator PowerUpDuration(PlaneMovement planeMovement, float normalVelocity)
+    IEnumerator PowerUpDuration(PlaneMovement planeMovement, float normalVelocity, float normalTurningForce)
     {
         yield return new WaitForSeconds(3);
         planeMovement.Velocity = normalVelocity;
+        planeMovement.TurningForce = normalTurningForce;
         Destroy(gameObject);
     }
 }
